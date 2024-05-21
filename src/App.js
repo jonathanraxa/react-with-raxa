@@ -1,19 +1,24 @@
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+
+import { Sidebar } from './static';
+import { HomePage, FloatingUi } from './pages';
 import './App.css';
-import {Tooltip} from './components';
-import {Dialog} from './components';
 
 function App() {
   return (
+    <Router>
     <div className="App">
-  
-      <div>
-        <Tooltip />
-      </div>
-      <br />
-      <div>
-        <Dialog />
+      <div className="main-content">
+        <Sidebar />
+        <div className="content">
+          <Routes>
+            <Route path="/" element={<HomePage />} />
+            <Route path="/floating-ui" element={<FloatingUi />} />
+          </Routes>
+        </div>
       </div>
     </div>
+  </Router>
   );
 }
 
